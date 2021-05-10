@@ -1,0 +1,57 @@
+{% extends "baseView.html" %}
+{% block content %}
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("cryptoTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+<div class="row">
+    
+    <div class="container"><h3>Crypto Market</h3><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Crypto">
+        <div class="col s12 card">
+            <!-- <div class="input-field container"><input type="text" placeholder="Crypto"></div> -->
+            <table class="striped" id="cryptoTable">
+                <thead>
+                    <tr>
+                        <th data-field="name">Market</th>
+                        <th data-field="day_High">24Hr High</th>
+                        <th data-field="day_low">24Hr Low</th>
+                        <th data-field="last_price">last_price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for crypto in market %}
+                    <tr>
+                        <td>{{crypto.market}}</td>
+                        <td>{{crypto.high}}</td>
+                        <td>{{crypto.low}}</td>
+                        <td>{{crypto.last_price}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

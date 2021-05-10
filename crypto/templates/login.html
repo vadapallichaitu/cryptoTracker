@@ -1,0 +1,15 @@
+{% extends "baseView.html" %}
+{% block content %}
+<form method="POST">
+  {% csrf_token %}
+  <div class="container">
+    {{form.as_p}}
+    <button class="btn" type="submit">Login</button>
+
+    <p>If you don't have an account then <a href="/register">Register</a> here</p>
+  </div>
+
+</form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper"
+      style="background-image: url(https://ph-files.imgix.net/1059b243-5a3b-4a53-965e-dad7a62e0145.png?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=696&h=380&fit=max&dpr=1);">
+      <a href="#" class="brand-logo">
+        <div style="background-color: rgb(10, 10, 10);">CryptoTracker</div>
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down" style="background-color: black;">
+        {% if user.is_authenticated %}
+
+        <li><a style="color: rgb(112, 145, 207);" href="/dashboard">
+            <div style="background-color: rgb(10, 10, 10);">Dashboard</div>
+          </a></li>
+        <li><a style="color: rgb(112, 145, 207);" href="/market">
+            <div style="background-color: rgb(10, 10, 10);">Market</div>
+          </a></li>
+        <li><a style="color: rgb(112, 145, 207);" href="/portfolio">
+            <div style="background-color: rgb(10, 10, 10);">Portfolio</div>
+          </a></li>
+        <li><a style="color: rgb(112, 145, 207);" href="/account">
+            <div style="background-color: rgb(10, 10, 10);">{{user.username}}</div>
+          </a></li>
+        <li><a style="color: rgb(112, 145, 207);" href="/logout">
+            <div style="background-color: rgb(10, 10, 10);">Logout</div>
+          </a></li>
+        {% else %}
+        <li><a style="color: rgb(112, 145, 207);" href="/register">
+            <div style="background-color: rgb(10, 10, 10);">Register</div>
+          </a></li>
+        <li><a style="color: rgb(112, 145, 207);" href="/login">
+            <div style="background-color: rgb(10, 10, 10);">Login</div>
+          </a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+</div>

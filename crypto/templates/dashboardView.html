@@ -1,0 +1,28 @@
+{% extends "baseView.html" %}
+{% block content %}
+<div class="row">
+    <div class="col s5  center-align">
+        <h4>Holding by percentage</h4>
+    </div>
+    <div class="col s1"></div>
+    <div class="col s5 center-align">
+        <h4>Quantity by percentage</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col 1"></div>
+    <div class="col 5 card">
+        <div>{{pie|safe}}</div>
+    </div>
+    <div class="col 1"></div>
+    <div class="col 5 card">{{quant|safe}}</div>
+</div>
+
+<br>
+<div class="row">
+    <div class="col s12 card">
+        {{portfolio|safe}}
+    </div>
+</div>
+
+{% endblock %}
